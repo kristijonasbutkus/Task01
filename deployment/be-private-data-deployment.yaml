@@ -1,0 +1,141 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.10.0 (8bb0907)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: be-private-data
+  name: be-private-data
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: be-private-data
+    spec:
+      containers:
+      - env:
+        - name: APP_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: APP_NAME
+              name: be-private-data-be-private-data-env
+        - name: DB_DRIVER
+          valueFrom:
+            configMapKeyRef:
+              key: DB_DRIVER
+              name: be-private-data-be-private-data-env
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: DB_HOST
+              name: be-private-data-be-private-data-env
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: DB_NAME
+              name: be-private-data-be-private-data-env
+        - name: DB_PASS
+          valueFrom:
+            configMapKeyRef:
+              key: DB_PASS
+              name: be-private-data-be-private-data-env
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: DB_PORT
+              name: be-private-data-be-private-data-env
+        - name: DB_USER
+          valueFrom:
+            configMapKeyRef:
+              key: DB_USER
+              name: be-private-data-be-private-data-env
+        - name: DOMAIN
+          valueFrom:
+            configMapKeyRef:
+              key: DOMAIN
+              name: be-private-data-be-private-data-env
+        - name: ENTITY_EVENTS_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: ENTITY_EVENTS_HOST
+              name: be-private-data-be-private-data-env
+        - name: ENTITY_EVENTS_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: ENTITY_EVENTS_PORT
+              name: be-private-data-be-private-data-env
+        - name: LOG_ENABLED
+          valueFrom:
+            configMapKeyRef:
+              key: LOG_ENABLED
+              name: be-private-data-be-private-data-env
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              key: LOG_LEVEL
+              name: be-private-data-be-private-data-env
+        - name: ORG_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: ORG_NAME
+              name: be-private-data-be-private-data-env
+        - name: PB_PATH
+          valueFrom:
+            configMapKeyRef:
+              key: PB_PATH
+              name: be-private-data-be-private-data-env
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              key: PORT
+              name: be-private-data-be-private-data-env
+        - name: PROJECT_PATH
+          valueFrom:
+            configMapKeyRef:
+              key: PROJECT_PATH
+              name: be-private-data-be-private-data-env
+        - name: PROMETHEUS_METRICS_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: PROMETHEUS_METRICS_PORT
+              name: be-private-data-be-private-data-env
+        - name: SSL_CERT_PATH
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_CERT_PATH
+              name: be-private-data-be-private-data-env
+        - name: SSL_ENABLED
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_ENABLED
+              name: be-private-data-be-private-data-env
+        - name: SSL_KEY_PATH
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_KEY_PATH
+              name: be-private-data-be-private-data-env
+        - name: TITLE
+          valueFrom:
+            configMapKeyRef:
+              key: TITLE
+              name: be-private-data-be-private-data-env
+        - name: ZIPKIN_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: ZIPKIN_HOST
+              name: be-private-data-be-private-data-env
+        - name: ZIPKIN_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: ZIPKIN_PORT
+              name: be-private-data-be-private-data-env
+        image: kristijonas/task1:be-private-data
+        name: be-private-data
+        resources: {}
+      restartPolicy: Always
+status: {}

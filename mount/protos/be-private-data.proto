@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package private_data;
+
+service PrivateDataService {
+    rpc Create(CreateRequest) returns (CreateResponse);
+    rpc Get(GetRequest) returns (GetResponse);
+    rpc GetAll(GetAllRequest) returns (GetAllResponse);
+    rpc Update(UpdateRequest) returns (UpdateResponse);
+}
+
+enum PrivateDataType {
+    ACCESS_KEY_CACHE = 0;
+    USER_SETTINGS = 1;
+}
+
+message PrivateData {
+    string id = 1;
+    string data = 2;
+    string bucketId = 3;
+    PrivateDataType type = 4;
+    Meta meta = 5;
+}
+
+message Meta {
+    Signature signature = 1;
+    string createdAt = 2;
+    string createdBy = 3;
+}
+
+enum HashType {
+    SHA256 = 0;
+    SHA512 = 1;
+}
+
+message Signature {
+    HashType type = 1;
+    string body = 2;
+    string verificationPublicKeyId = 3;
+}
+
+message CreateRequest {
+    repeated PrivateData list = 1;
+}
+
+message CreateResponse {
+    repeated PrivateData list = 1;
+    ErrorStatus error = 2;
+}
+
+message GetRequest {
+    repeated string ids = 1;
+}
+
+message GetResponse {
+    repeated PrivateData list = 1;
+    ErrorStatus error = 2;
+}
+
+message GetAllRequest {
+    string userId = 1;
+}
+
+message GetAllResponse {
+    repeated PrivateData list = 1;
+    ErrorStatus error = 2;
+}
+
+message UpdateRequest {
+    repeated PrivateData list = 1;
+}
+
+message UpdateResponse {
+    repeated PrivateData list = 1;
+    ErrorStatus error = 2;
+}
+
+message ErrorStatus {
+    string message = 1;
+    repeated google.protobuf.Any details = 2;
+}

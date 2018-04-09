@@ -1,0 +1,131 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.10.0 (8bb0907)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: be-entity-events
+  name: be-entity-events
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: be-entity-events
+    spec:
+      containers:
+      - env:
+        - name: APP_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: APP_NAME
+              name: be-entity-events-be-entity-events-env
+        - name: DB_DRIVER
+          valueFrom:
+            configMapKeyRef:
+              key: DB_DRIVER
+              name: be-entity-events-be-entity-events-env
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: DB_HOST
+              name: be-entity-events-be-entity-events-env
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: DB_NAME
+              name: be-entity-events-be-entity-events-env
+        - name: DB_PASS
+          valueFrom:
+            configMapKeyRef:
+              key: DB_PASS
+              name: be-entity-events-be-entity-events-env
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: DB_PORT
+              name: be-entity-events-be-entity-events-env
+        - name: DB_USER
+          valueFrom:
+            configMapKeyRef:
+              key: DB_USER
+              name: be-entity-events-be-entity-events-env
+        - name: DOMAIN
+          valueFrom:
+            configMapKeyRef:
+              key: DOMAIN
+              name: be-entity-events-be-entity-events-env
+        - name: LOG_ENABLED
+          valueFrom:
+            configMapKeyRef:
+              key: LOG_ENABLED
+              name: be-entity-events-be-entity-events-env
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              key: LOG_LEVEL
+              name: be-entity-events-be-entity-events-env
+        - name: ORG_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: ORG_NAME
+              name: be-entity-events-be-entity-events-env
+        - name: PB_PATH
+          valueFrom:
+            configMapKeyRef:
+              key: PB_PATH
+              name: be-entity-events-be-entity-events-env
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              key: PORT
+              name: be-entity-events-be-entity-events-env
+        - name: PROJECT_PATH
+          valueFrom:
+            configMapKeyRef:
+              key: PROJECT_PATH
+              name: be-entity-events-be-entity-events-env
+        - name: PROMETHEUS_METRICS_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: PROMETHEUS_METRICS_PORT
+              name: be-entity-events-be-entity-events-env
+        - name: SSL_CERT_PATH
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_CERT_PATH
+              name: be-entity-events-be-entity-events-env
+        - name: SSL_ENABLED
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_ENABLED
+              name: be-entity-events-be-entity-events-env
+        - name: SSL_KEY_PATH
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_KEY_PATH
+              name: be-entity-events-be-entity-events-env
+        - name: TITLE
+          valueFrom:
+            configMapKeyRef:
+              key: TITLE
+              name: be-entity-events-be-entity-events-env
+        - name: ZIPKIN_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: ZIPKIN_HOST
+              name: be-entity-events-be-entity-events-env
+        - name: ZIPKIN_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: ZIPKIN_PORT
+              name: be-entity-events-be-entity-events-env
+        image: kristijonas/task1:be-entity-events
+        name: be-entity-events
+        resources: {}
+      restartPolicy: Always
+status: {}

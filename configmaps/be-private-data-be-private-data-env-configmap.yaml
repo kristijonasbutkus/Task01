@@ -1,0 +1,31 @@
+apiVersion: v1
+data:
+  APP_NAME: be-private-data
+  DB_DRIVER: postgres
+  DB_HOST: postgres2
+  DB_NAME: be-private-data-db
+  DB_PASS: postgres
+  DB_PORT: "5434"
+  DB_USER: postgres
+  DOMAIN: passcamp.doc
+  ENTITY_EVENTS_HOST: be-entity-events
+  ENTITY_EVENTS_PORT: "443"
+  LOG_ENABLED: "true"
+  LOG_LEVEL: debug
+  ORG_NAME: awpc
+  PB_PATH: private_data
+  PORT: "443"
+  PROJECT_PATH: dev.adeoweb.biz/pas
+  PROMETHEUS_METRICS_PORT: "9090"
+  SSL_CERT_PATH: /ssl/cert.pem
+  SSL_ENABLED: "false"
+  SSL_KEY_PATH: /ssl/key.pem
+  TITLE: PrivateDataService
+  ZIPKIN_HOST: zipkin
+  ZIPKIN_PORT: "9411"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: be-private-data-be-private-data-env
+  name: be-private-data-be-private-data-env

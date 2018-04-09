@@ -1,0 +1,29 @@
+apiVersion: v1
+data:
+  APP_NAME: be-entity-events
+  DB_DRIVER: postgres
+  DB_HOST: postgres
+  DB_NAME: be-entity-events-db
+  DB_PASS: postgres
+  DB_PORT: "5433"
+  DB_USER: postgres
+  DOMAIN: passcamp.doc
+  LOG_ENABLED: "true"
+  LOG_LEVEL: debug
+  ORG_NAME: awpc
+  PB_PATH: entity_events
+  PORT: "443"
+  PROJECT_PATH: dev.adeoweb.biz/pas
+  PROMETHEUS_METRICS_PORT: "9090"
+  SSL_CERT_PATH: /cert/frontend.cert
+  SSL_ENABLED: "false"
+  SSL_KEY_PATH: /cert/frontend.key
+  TITLE: EntityEventsService
+  ZIPKIN_HOST: zipkin
+  ZIPKIN_PORT: "9411"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: be-entity-events-be-entity-events-env
+  name: be-entity-events-be-entity-events-env

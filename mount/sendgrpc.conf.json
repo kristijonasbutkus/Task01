@@ -1,0 +1,14 @@
+{
+    "servers": [
+        {
+            "name": "be-private-data",
+            "protoPath": "protos/be-private-data.proto",
+            "target": "http://be-private-data:443"
+        },
+        {
+            "name": "be-entity-events",
+            "protoPath": "protos/be-entity-events.proto",
+            "target": "http://be-entity-events:443"
+        }
+    ]
+}
