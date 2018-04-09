@@ -20,19 +20,25 @@ Script turns on port forwarding which lets user connect directly to sendgrpc too
 
 # Getting it to work
 
-    STEP 1
+STEP 1
 
 Clone the repository
 
 git clone https://github.com/kristijonasbutkus/Task01.git
 
-    STEP 2
+STEP 2
+
+Start your minikube
+
+    minikube start
+
+STEP 3
 
 Hop into Task01 folder and execute scripts in the following order:
 
 dirchange.sh  >  deployment.sh  >  sendgrpc_test.sh
 
-    STEP 3
+STEP 4
 
 To test the condition of your minikube use:
     
